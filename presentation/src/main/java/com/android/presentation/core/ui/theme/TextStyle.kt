@@ -6,12 +6,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 object TextStyle {
+    val headlineMini = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 8.sp,
+    )
     val headlineSmaller = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
-        lineHeight = 24.sp,
-        color = ColorAccent
     )
     val headlineSmall = TextStyle(
         fontFamily = FontFamily.Default,
@@ -24,6 +27,12 @@ object TextStyle {
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Medium,
         fontSize = 20.sp,
+        color = ColorAccent
+    )
+    val headlineMediumLarge = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Medium,
+        fontSize = 24.sp,
         color = ColorAccent
     )
     val headlineLarge = TextStyle(

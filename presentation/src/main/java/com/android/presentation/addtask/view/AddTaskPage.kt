@@ -19,12 +19,15 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,6 +41,22 @@ import com.android.presentation.core.widget.TimeTextField
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AddTaskPage() {
+    val taskTitle = remember {
+        mutableStateOf(TextFieldValue())
+    }
+    val taskDescription = remember {
+        mutableStateOf(TextFieldValue())
+
+    }
+    val taskDate = remember {
+        mutableStateOf(TextFieldValue())
+    }
+    val taskTime = remember {
+        mutableStateOf(TextFieldValue())
+    }
+    val taskEvent = remember {
+        mutableStateOf(TextFieldValue())
+    }
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -77,19 +96,27 @@ fun AddTaskPage() {
         )
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_medium_padding)))
         Text(text = "Task title")
-        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(
+            value = taskTitle.value,
+            onValueChange = { taskTitle.value = it },
+            modifier = Modifier.fillMaxWidth()
+        )
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_medium_padding)))
         Text(text = "Task description")
-        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(
+            value = taskDescription.value,
+            onValueChange = { taskDescription.value = it },
+            modifier = Modifier.fillMaxWidth()
+        )
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_medium_padding)))
         Text(text = "Task date")
-        MyDateField()
+        MyDateField(taskDate)
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_medium_padding)))
         Text(text = "Task time")
-        TimeTextField()
+        TimeTextField(taskTime)
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_medium_padding)))
         Text(text = "Add an event")
-        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        OutlinedTextField(value = taskEvent.value, onValueChange = {taskEvent.value = it}, modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.padding(top = dimensionResource(id = R.dimen.modifier_large_padding)))
         ElevatedButton(
             onClick = { /*TODO*/ }, colors = ButtonDefaults.elevatedButtonColors(

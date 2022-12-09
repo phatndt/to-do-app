@@ -97,6 +97,7 @@ fun TaskMain() {
                     )
                 }
             }
+            TaskWidget()
             Scaffold(modifier = Modifier.weight(1f)) {
 
             }

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -21,9 +22,8 @@ import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun MyDateField() {
+fun MyDateField(textFieldValue: MutableState<TextFieldValue>) {
     val dialogState = rememberMaterialDialogState()
-    val textState = remember { mutableStateOf(TextFieldValue()) }
     MaterialDialog(
         dialogState = dialogState,
         buttons = {
@@ -35,13 +35,13 @@ fun MyDateField() {
             val formattedDate = it.format(
                 DateTimeFormatter.ofPattern("dd.MM.yyyy")
             )
-            textState.value = TextFieldValue(formattedDate)
+            textFieldValue.value = TextFieldValue(formattedDate)
 
         }
     }
     ReadonlyTextField(
-        value = textState.value,
-        onValueChange = { textState.value = it },
+        value = textFieldValue.value,
+        onValueChange = { textFieldValue.value = it },
         modifier = Modifier.fillMaxWidth(),
         onClick = {
             dialogState.show()
