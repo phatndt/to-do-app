@@ -1,0 +1,7 @@
+<resources>
+    <string name="title_activity_task">TaskActivity</string>
+    <string name="hello">Hello</string>
+    <string name="all_tasks">All tasks</string>
+    <string name="title_add_task">Add a task</string>
+    <string name="description_add_task">Fill the details bellow to add a task into your TODO</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="modifier_mini_padding">2dp</dimen>
+    <dimen name="modifier_smaller_padding">4dp</dimen>
+    <dimen name="modifier_small_padding">8dp</dimen>
+    <dimen name="modifier_medium_small_padding">12dp</dimen>
+    <dimen name="modifier_medium_padding">16dp</dimen>
+    <dimen name="modifier_large_medium_padding">24dp</dimen>
+    <dimen name="modifier_large_padding">32dp</dimen>
+    <dimen name="modifier_larger_padding">40dp</dimen>
+</resources>
